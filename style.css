@@ -392,3 +392,77 @@ main > .close {
     flex-direction: column;
   }
 }
+
+/* ---------- No ads ---------- */
+main > .no-ads {
+  max-width: calc(760px + 2 * var(--gutter));
+  padding-top: clamp(80px, 12vh, 120px);
+  text-align: center;
+}
+
+.no-ads h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.no-ads p {
+  max-width: 46ch;
+  margin: 14px auto 0;
+  color: var(--cream-muted);
+  font-size: 1.1rem;
+}
+
+/* ---------- The two big sections ---------- */
+#features > .big {
+  padding-top: clamp(96px, 14vh, 140px);
+}
+
+.big-copy {
+  max-width: 640px;
+}
+
+.big-copy p {
+  margin-top: 14px;
+  color: var(--cream-muted);
+  font-size: 1.1rem;
+}
+
+.points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--cream-muted);
+}
+
+.points li {
+  padding-top: 16px;
+  border-top: 2px solid var(--yellow);
+}
+
+.points strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--cream);
+  font-size: 1.05rem;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 2vw, 24px);
+  margin-top: 40px;
+}
+
+.pair img {
+  border-radius: 10px;
+  outline: 1px solid #2e2e2f;
+}
+
+@media (max-width: 820px) {
+  .points,
+  .pair {
+    grid-template-columns: 1fr;
+  }
+}
