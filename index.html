@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Workbench: a Minecraft launcher for people who play with mods</title>
+    <meta
+      name="description"
+      content="A free Minecraft launcher for Windows that explains crashes in plain English, warns you before mods clash, and keeps every profile up to date."
+    />
+    <meta property="og:title" content="Workbench" />
+    <meta property="og:description" content="A Minecraft launcher for people who play with mods." />
+    <meta property="og:image" content="img/logo.png" />
+    <meta name="theme-color" content="#1c1c1d" />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="preload" href="fonts/baloo-2-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/nunito-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" /></symbol>
+      <symbol id="i-logs" viewBox="0 0 24 24"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M15 8h-5" /><path d="M15 12h-5" /></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path stroke="none" fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3" /></symbol>
+    </svg>
+
+    <header class="bar">
+      <a class="brand" href="#top" aria-label="Workbench home">
+        <img src="img/logo.png" alt="" width="30" height="30" />
+        <span>workbench</span>
+      </a>
+      <nav class="bar-links" aria-label="Page">
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/Grovuss/Workbench" class="bar-github" aria-label="Workbench on GitHub">
+          <svg class="icon"><use href="#i-github" /></svg>
+        </a>
+        <a class="btn btn-yellow btn-small" href="https://github.com/Grovuss/Workbench/releases/latest" data-download>
+          <svg class="icon"><use href="#i-download" /></svg> Download
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <h1>Your game crashed. Here’s&nbsp;why.</h1>
+        <p class="lede">
+          Workbench is a free Minecraft launcher for people who play with mods. It reads the log, tells you what broke in plain
+          English, and fixes it in one click.
+        </p>
+
+        <div class="stage" data-stage>
+          <figure class="log" aria-label="The Minecraft log after a crash">
+            <figcaption class="log-head">
+              <span class="log-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              logs/latest.log
+            </figcaption>
+            <pre class="log-body"><code><span class="ln">[13:42:07] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.16.10</span>
+<span class="ln">[13:42:08] [main/ERROR]: Incompatible mods found!</span>
+<span class="ln">net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!</span>
+<span class="ln">A potential solution has been determined, this may resolve your problem:</span>
+<span class="ln">	 - Install sodium, version 0.6.0 or later.</span>
+<span class="ln">	 - Install fabric-api, any version.</span>
+<span class="ln">More details:</span>
+<span class="ln culprit" data-culprit="1">	 - Mod 'Iris' (iris) 1.8.1 requires version 0.6.0 or later of mod 'Sodium' (sodium), which is missing!</span>
+<span class="ln culprit" data-culprit="2">	 - Mod 'Sodium Extra' (sodium-extra) 0.6.0 requires any version of fabric-api, which is missing!</span>
+<span class="ln">	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:207)</span>
+<span class="ln">	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142)</span>
+<span class="ln">	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)</span></code></pre>
+          </figure>
+
+          <div class="field">
+            <div class="dialog" role="group" aria-label="What Workbench shows for this crash">
+              <div class="dialog-head">
+                <strong>Survival crashed</strong>
+                <svg class="icon" aria-hidden="true"><use href="#i-x" /></svg>
+              </div>
+              <p class="dialog-text">These are the likely causes. Fix them, then press Play again.</p>
+              <ul class="problems">
+                <li data-problem="1">
+                  <p>Iris needs Sodium 0.6.0 or later, which isn’t installed.</p>
+                  <button class="fix" type="button">Install Sodium</button>
+                </li>
+                <li data-problem="2">
+                  <p>Sodium Extra needs Fabric API, which isn’t installed.</p>
+                  <button class="fix" type="button">Install Fabric API</button>
+                </li>
+              </ul>
+              <div class="dialog-foot" aria-hidden="true">
+                <span class="dbtn dbtn-ghost"><svg class="icon"><use href="#i-logs" /></svg> View logs</span>
+                <span class="dbtn dbtn-yellow">Close</span>
+              </div>
+            </div>
+          </div>
+
+          <svg class="leaders" aria-hidden="true" data-leaders></svg>
+        </div>
+
+        <div class="get">
+          <a class="btn btn-yellow btn-big" href="https://github.com/Grovuss/Workbench/releases/latest" data-download>
+            <svg class="icon"><use href="#i-download" /></svg> Download for Windows
+          </a>
+          <p class="get-meta"><span data-version>Latest version</span> · Windows 10 and 11 · Free</p>
+        </div>
+        <p class="caption">Above: a real log and what Workbench says about it. Press a fix to try it.</p>
+      </section>
+
+      <section class="feature" id="features">
+        <div class="feature-copy">
+          <h2>It warns you before mods clash.</h2>
+          <p>
+            Some mods can’t be used together. Sodium and VulkanMod both replace the renderer, Iris and Oculus do the same job,
+            OptiFine clashes with Sodium. Workbench knows, and tells you before you install the second one, with the
+            option to turn the first one off.
+          </p>
+          <p>
+            Before every launch it also checks for missing dependencies, mods made for a different loader or Minecraft
+            version, and the same mod installed twice.
+          </p>
+        </div>
+        <div class="shots shots-pair">
+          <img src="img/browse-clash.webp" width="2560" height="1600" loading="lazy" alt="Browsing mods: VulkanMod is tagged ‘Clashes with Sodium’" />
+          <img src="img/clash.webp" width="2560" height="1600" loading="lazy" alt="The warning shown when installing VulkanMod next to Sodium, with Install anyway, Cancel and Turn off Sodium and install" />
+        </div>
+      </section>
+
+      <section class="feature feature-flip">
+        <div class="feature-copy">
+          <h2>Update everything. Except what you’re keeping.</h2>
+          <p>
+            Lock a mod to the version you have and updates leave it alone, in that profile only. Then check every profile at
+            once, see exactly what will change, and update them together.
+          </p>
+        </div>
+        <div class="shots shots-stack">
+          <img src="img/content.webp" width="2560" height="1600" loading="lazy" alt="A profile’s mods: FerriteCore and Lithium have updates, Mod Menu is locked at its version" />
+          <img src="img/update-all.webp" width="2560" height="1600" loading="lazy" alt="Update profiles: Survival has 2 updates and 1 held, Creative builds has 1 update" />
+        </div>
+      </section>
+
+      <section class="rest">
+        <h2>And the rest of a launcher, done properly.</h2>
+        <div class="gallery">
+          <figure>
+            <img src="img/profiles.webp" width="2560" height="1600" loading="lazy" alt="The Profiles page with groups, playtime and a pinned profile" />
+            <figcaption>Profiles for vanilla, Fabric, Quilt, Forge and NeoForge, each with its own memory and Java settings. Group them, pin the ones you play.</figcaption>
+          </figure>
+          <figure>
+            <img src="img/project.webp" width="2560" height="1600" loading="lazy" alt="Sodium’s page inside Workbench, with its gallery and details" />
+            <figcaption>Every mod, modpack, resource pack, shader and data pack on Modrinth, with full pages, changelogs and any version you want.</figcaption>
+          </figure>
+          <figure>
+            <img src="img/themes.webp" width="2560" height="1600" loading="lazy" alt="Appearance settings: themes, accent colours and interface size" />
+            <figcaption>Themes, accent colours, your own background image, and a size that suits your screen.</figcaption>
+          </figure>
+        </div>
+        <dl class="also">
+          <div><dt>Worlds and servers</dt><dd>Jump back into a world or join a server straight from the launcher on 1.20 and later.</dd></div>
+          <div><dt>Modpacks</dt><dd>Import <code>.mrpack</code> files, or share your own profiles as <code>.workbench</code> packs.</dd></div>
+          <div><dt>Screenshots</dt><dd>A gallery for every profile, so they don’t stay buried in a folder.</dd></div>
+          <div><dt>Keeps itself current</dt><dd>New versions download in the background and install next time you open it.</dd></div>
+        </dl>
+      </section>
+
+      <section class="faq" id="faq">
+        <h2>Questions</h2>
+        <details>
+          <summary>Windows says it’s from an unknown publisher. Is it safe?<svg class="icon"><use href="#i-chevron" /></svg></summary>
+          <p>
+            The installer isn’t code-signed yet, so Windows SmartScreen doesn’t recognise it. Choose <strong>More info</strong>, then
+            <strong>Run anyway</strong>. The source code is <a href="https://github.com/Grovuss/Workbench">on GitHub</a>, and every
+            installer is built there from that code.
+          </p>
+        </details>
+        <details>
+          <summary>Can I sign in with my Microsoft account?<svg class="icon"><use href="#i-chevron" /></svg></summary>
+          <p>
+            Not yet. Microsoft has to approve new launchers before they can sign in, and that approval is pending. Until then
+            Workbench plays with an offline account, which works for singleplayer and LAN but not online servers.
+          </p>
+        </details>
+        <details>
+          <summary>What about CurseForge?<svg class="icon"><use href="#i-chevron" /></svg></summary>
+          <p>Browsing CurseForge is coming once CurseForge approves API access. Everything on Modrinth works today.</p>
+        </details>
+        <details>
+          <summary>Does it work on Mac or Linux?<svg class="icon"><use href="#i-chevron" /></svg></summary>
+          <p>Windows only for now.</p>
+        </details>
+        <details>
+          <summary>Does it cost anything?<svg class="icon"><use href="#i-chevron" /></svg></summary>
+          <p>No. Workbench is free.</p>
+        </details>
+      </section>
+
+      <section class="close">
+        <h2>Spend the evening playing, not reading logs.</h2>
+        <a class="btn btn-dark btn-big" href="https://github.com/Grovuss/Workbench/releases/latest" data-download>
+          <svg class="icon"><use href="#i-download" /></svg> Download for Windows
+        </a>
+        <p class="close-meta"><span data-version>Latest version</span><span data-size></span> · Windows 10 and 11</p>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>
+        Made by <a href="https://github.com/Grovuss">Grovuss</a> ·
+        <a href="https://github.com/Grovuss/Workbench">Source on GitHub</a> ·
+        <a href="https://github.com/Grovuss/Workbench/releases">All releases</a>
+      </p>
+      <p class="foot-legal">Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
