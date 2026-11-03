@@ -237,6 +237,32 @@ main > section,
   font-weight: 700;
 }
 
+/* Downloads for the other systems, under the main button. */
+.get-others {
+  color: var(--cream-faint);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.get-others a {
+  color: var(--cream-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.get-others a:hover {
+  color: var(--cream);
+}
+
+.close .get-others {
+  margin-top: 6px;
+  color: var(--ink-on-yellow-muted);
+}
+
+.close .get-others a {
+  color: var(--ink-on-yellow);
+}
+
 .hero-shot {
   margin-top: clamp(40px, 7vh, 64px);
   border-radius: var(--radius);
@@ -313,6 +339,16 @@ main > .faq {
 .faq details p {
   padding-bottom: 20px;
   color: var(--cream-muted);
+}
+
+.faq code {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: #2e2e2f;
+  color: var(--cream);
+  font-family: ui-monospace, 'Cascadia Mono', Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
 }
 
 .faq strong {

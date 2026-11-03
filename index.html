@@ -6,7 +6,7 @@
     <title>Workbench: a Minecraft launcher for everyone</title>
     <meta
       name="description"
-      content="A free Minecraft launcher for Windows. Play any version, add mods in a click, and keep everything tidy."
+      content="A free Minecraft launcher for Windows, Mac and Linux. Play any version, add mods in a click, and keep everything tidy."
     />
     <meta property="og:title" content="Workbench" />
     <meta property="og:description" content="A Minecraft launcher for everyone." />
@@ -46,9 +46,10 @@
         <p class="lede">Play any version, add mods in a click, and keep all your worlds and setups tidy. Free, with no ads, and easy from the start.</p>
         <div class="get">
           <a class="btn btn-yellow btn-big" href="https://github.com/Grovuss/Workbench/releases/latest" data-download>
-            <svg class="icon"><use href="#i-download" /></svg> Download for Windows
+            <svg class="icon"><use href="#i-download" /></svg> <span data-download-label>Download</span>
           </a>
-          <p class="get-meta"><span data-version>Latest version</span> · Windows 10 and 11 · Free</p>
+          <p class="get-meta"><span data-version>Latest version</span> · <span data-platform>Windows, Mac and Linux</span> · Free</p>
+          <p class="get-others" data-other-downloads hidden></p>
         </div>
         <img class="hero-shot" src="img/profiles.webp" width="2560" height="1600" alt="Workbench showing a list of Minecraft profiles, each with a Play button" />
       </section>
@@ -126,13 +127,13 @@
         <details>
           <summary>Is Workbench vibecoded?<svg class="icon"><use href="#i-chevron" /></svg></summary>
           <p>
-            Unfortunately, partially. I’m still learning. I did as much as I could myself, but I’m not perfect. I use AI tools to
+            Unfortunately, partially. I’m still learning. I did as much as I could myself, but I’m not perfect. I use AI tools like claude to
             help me fix issues I run into, so I can learn how to overcome them myself later. I plan to go over everything at a later date and clean it up,
             removing AI code and making the app better.
           </p>
           <p>
-            What Workbench does and how it looks were planned out by me, and all of the branding, including the logo, is
-            hand-made.
+            Claude assisted in the backend and making sure everything works as intended. Most of the frontend and all of the branding, including the logo, layouts, and design of the launcher is
+            hand-made by me.
           </p>
           <p>
             Being upfront about this matters a lot to me. If it puts you off Workbench, I understand. It’s also the whole
@@ -144,6 +145,26 @@
           <p>
             Yes. The installer isn’t signed yet, so Windows doesn’t recognize it. Choose <strong>More info</strong>, then
             <strong>Run anyway</strong>. All the code is <a href="https://github.com/Grovuss/Workbench">on GitHub</a>.
+          </p>
+        </details>
+        <details>
+          <summary>My Mac says Workbench is damaged or can’t be opened. What do I do?<svg class="icon"><use href="#i-chevron" /></svg></summary>
+          <p>
+            Nothing is wrong with it. The Mac app isn’t signed with a paid Apple developer certificate yet, so macOS blocks it the
+            first time. Drag Workbench into <strong>Applications</strong>, open <strong>Terminal</strong>, run
+            <code>xattr -cr /Applications/Workbench.app</code>, then open Workbench again. You only need to do this once.
+          </p>
+          <p>
+            For the same reason, Workbench can’t update itself on a Mac. It tells you when there’s a new version and opens the
+            download for you.
+          </p>
+        </details>
+        <details>
+          <summary>How do I run it on Linux?<svg class="icon"><use href="#i-chevron" /></svg></summary>
+          <p>
+            Download the AppImage, make it runnable (right-click → Properties → Allow executing, or
+            <code>chmod +x Workbench-*.AppImage</code>), then open it. If it won’t start on a newer Ubuntu, install
+            <code>libfuse2</code> first.
           </p>
         </details>
         <details>
@@ -159,7 +180,10 @@
         </details>
         <details>
           <summary>Does it work on Mac or Linux?<svg class="icon"><use href="#i-chevron" /></svg></summary>
-          <p>Windows only for now.</p>
+          <p>
+            Yes. Workbench runs on Windows 10 and 11, on macOS 11 or newer (Apple Silicon and Intel), and on most Linux
+            systems.
+          </p>
         </details>
         <details>
           <summary>Does it cost anything?<svg class="icon"><use href="#i-chevron" /></svg></summary>
@@ -170,9 +194,10 @@
       <section class="close">
         <h2>Download Workbench</h2>
         <a class="btn btn-dark btn-big" href="https://github.com/Grovuss/Workbench/releases/latest" data-download>
-          <svg class="icon"><use href="#i-download" /></svg> Download for Windows
+          <svg class="icon"><use href="#i-download" /></svg> <span data-download-label>Download</span>
         </a>
-        <p class="close-meta"><span data-version>Latest version</span><span data-size></span> · Windows 10 and 11</p>
+        <p class="close-meta"><span data-version>Latest version</span><span data-size></span> · <span data-platform>Windows, Mac and Linux</span></p>
+        <p class="get-others" data-other-downloads hidden></p>
       </section>
     </main>
 
