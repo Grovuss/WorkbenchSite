@@ -63,3 +63,22 @@ async function linkLatestRelease() {
 }
 
 linkLatestRelease();
+
+// How many people use Workbench; each copy counts itself once (it can be turned off in its settings).
+async function showUsers() {
+  try {
+    const res = await fetch('https://workbench-support.grovuss.workers.dev/stats');
+    if (!res.ok) return;
+    const { users } = await res.json();
+    if (!Number.isFinite(users) || users < 1) return;
+    const count = users.toLocaleString('en-US');
+    document.querySelectorAll('[data-users]').forEach((el) => {
+      el.textContent = `Join ${count} ${users === 1 ? 'person' : 'people'} already using it.`;
+      el.hidden = false;
+    });
+  } catch {
+    // Stays hidden.
+  }
+}
+
+showUsers();

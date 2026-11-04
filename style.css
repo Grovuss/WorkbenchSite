@@ -370,6 +370,14 @@ main > .close {
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
 }
 
+/* "Join N people already using it." Pulls up under the heading when shown. */
+.close-users {
+  margin: -16px 0 26px;
+  color: var(--ink-on-yellow-muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 700;
+}
+
 .close-meta {
   margin-top: 14px;
   color: var(--ink-on-yellow-muted);
